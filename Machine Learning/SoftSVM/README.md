@@ -4,7 +4,7 @@
 The support vector machine either soft or hard is supposed to find a linear line that best fits the data set. While that is what the Perceptron and the Linear Regression leaners create a line of best, they also include two more supporting lines that are boudned by the nearest opposing label points. The hard SVM is more ridged than the soft as it must fine the two opposing points, while the soft SVM uses a value, lambda, that acts as a threshold value for the difference between the points. 
 
 ## Theory 
-
+![](images/svmtheory.PNG)
 
 ## Class Outline 
  The class has four functions: 
@@ -40,4 +40,24 @@ obj.plot(X, y)
 obj.predict(X)
 
 ## Output 
+The following images are of from the output file. 
 
+Testing the Soft SVM as a hard SVM using the first two features of the Iris data set.
+
+![](images/svmoutput1.PNG)
+
+Testing recommened output plot for the SVM from SKLearn.
+
+![](images/svmoutput2.PNG)
+
+Testing the Soft SVM as a soft SVM on the same two features of the Iris data set.
+
+![](images/svmoutput3.PNG)
+
+Testing the Soft SVM as a soft SVM on the two feature Iris data set using the recommened output plot for the SVM from SKLearn.
+
+![](images/svmoutput4.PNG)
+
+Testing the Soft SVM as a hard SVM on the recommened SKLearn Blolb Data set. 
+
+![](images/svmoutput5.PNG)
