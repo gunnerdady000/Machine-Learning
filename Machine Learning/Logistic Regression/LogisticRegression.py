@@ -52,7 +52,7 @@ class LogisticLearner(object):
     # Used to find the predicted value from the true data set, compared to sklearn's model, which had this function
     def accuracy(self, y):
         # Add up the number of times that a value was calculated correctly divided by the total amount of values
-        precent_error = np.sum(y == self.y_predict) / len(y)
+        precent_error = np.sum(y == self.y_predict) / self.target
         return precent_error
 
     # Predict value based off the weights and bias from the fit, then return the values
@@ -75,7 +75,7 @@ class LogisticLearner(object):
         plt.legend(loc='best')
 
         plt.subplot(212)
-        plt.scatter(x[:, 0], x[:, 1], c=self.y_predict, label=f'Predicted y correlation = {np.round(self.accuracy(y, x),3)}')
+        plt.scatter(x[:, 0], x[:, 1], c=self.y_predict, label=f'Predicted y correlation = {np.round(self.accuracy(y),3)}')
         plt.title('Predicted Values using Logistic Regression')
         plt.legend(loc='best')
 
