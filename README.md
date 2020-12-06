@@ -7,19 +7,19 @@ Currently, this repository is used to hold the algorithms that I made for my Mac
 Below is a list of classes I have completed in my 5 years at SDSMT. All Computer Engnieering Classes will be signified 🖥️ with and all Electrical Classes will be signified with ⚡. I will inlcude all Computer Sciecne Classes under Computer Engineering. Math Classes will be signified with 🧮. 
 
 ## List of Relevant Course Work
-🖥️ Digital Systems
-🖥️ Computer Architecture 
-🖥️ ARM Assembly 
-🖥️ Real-Time Operating Systems (RTOS)
-🖥️ Embedded Systems
-⚡ Electornics I & II 
-⚡ EMF, Applications of EMF
-⚡ E&M Properties of Materials
-⚡ Siganls & Systems, Control Systems
-⚡ Microwave Engineering
-🧮 Partial Differentail Equations
-🧮 Linear Algerba
-🧮 Calculus 1,2,3(Multivariable)
+- 🖥️ Digital Systems
+- 🖥️ Computer Architecture 
+- 🖥️ ARM Assembly 
+- 🖥️ Real-Time Operating Systems (RTOS)
+- 🖥️ Embedded Systems
+- ⚡ Electornics I & II 
+- ⚡ EMF, Applications of EMF
+- ⚡ E&M Properties of Materials
+- ⚡ Siganls & Systems, Control Systems
+- ⚡ Microwave Engineering
+- 🧮 Partial Differentail Equations
+- 🧮 Linear Algerba
+- 🧮 Calculus 1,2,3(Multivariable)
 
 ### Languauges
 I primaraly code in C, but most of my Data Structures work was done in C++. As for the Machine Learning Course and Computer Architecture I have been using Python. I also know ARMv8 pretty well as my Assembly Languauge course was in ARMv8. Lastly, I have dabbeled in VHDL as well Java. 
