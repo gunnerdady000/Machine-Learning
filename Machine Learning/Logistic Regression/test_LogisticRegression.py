@@ -13,6 +13,7 @@ def test_logistic():
     y = y[:, np.newaxis]
     logic = LogisticLearner(0.01, 10000)
     logic.fit(x, y)
+    y_predict = logic.predict(x)
     print(logic.weights)
     print(logic.bias)
     print(f"Accuracy: ", logic.accuracy(y))
