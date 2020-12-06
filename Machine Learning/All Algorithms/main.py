@@ -6,6 +6,21 @@ from sklearn.linear_model import LogisticRegression
 
 
 def main():
+    print("Running Perceptron Class Tests...")
+    test_perceptron()
+    print("Running the Low VC Learners...")
+    print("Testing the 1-d Threshold Learner...")
+    test_threshold()
+    print("Testing the 1-d Interval Learner...")
+    test_interval()
+    print("Testing More Line Learners...")
+    print("Testing Linear Regression...")
+    test_linearRegression()
+    print("Testing Logistic Regression...")
+    test_logistic()
+    print("Testing k-nearest neighbor...")
+    test_knn()
+    print("Testing Soft Vector Machine...")
     test_svm()
 
 
@@ -101,14 +116,15 @@ def test_logistic():
     iris = datasets.load_iris()
     x = iris.data[:, :2]
     y = (iris.target != 0) * 1
+    y_sk = y
     y = y[:, np.newaxis]
     logic = LogisticLearner(0.01, 10000)
     logic.fit(x, y)
     y_predict = logic.predict(x)
     print(logic.weights)
     print(logic.bias)
-    print(f"Accuracy: {np.sum(y == y_predict) / x.shape[0]}")
-    clf = LogisticRegression(random_state=0).fit(x, y)
+    print(f"Accuracy: ", logic.accuracy(y))
+    clf = LogisticRegression(random_state=0).fit(x, y_sk)
     clf.predict(x[:2, :])
     print(clf.score(x, y))
     logic.graph(x, y)

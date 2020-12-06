@@ -471,7 +471,7 @@ class IntervalLearner(object):
 # X is a (n by m) numpy array and y is a 1-d by m array that holds either 1 or 0 as labels for the data set.
 #
 # Use obj.fit(X, y) to create a best logistic line for the data
-# Use obj.accuracy(X) to find the accuracy of the logistic line, will return a percentage value
+# Use obj.accuracy(y) to find the accuracy of the logistic line, will return a percentage value
 # Use obj.predict(X) to on a data set to see how the fitted logistic line to a dataset
 # Use obj.graph(X, y) to see the outputs of the actual data and the predicted data
 #
@@ -513,9 +513,9 @@ class LogisticLearner(object):
         return self
 
     # Used to find the predicted value from the true data set, compared to sklearn's model, which had this function
-    def accuracy(self, y, X):
+    def accuracy(self, y):
         # Add up the number of times that a value was calculated correctly divided by the total amount of values
-        precent_error = np.sum(y == self.y_predict) / X.shape[0]
+        precent_error = np.sum(y == self.y_predict) / self.target
         return precent_error
 
     # Predict value based off the weights and bias from the fit, then return the values
@@ -538,7 +538,7 @@ class LogisticLearner(object):
         plt.legend(loc='best')
 
         plt.subplot(212)
-        plt.scatter(x[:, 0], x[:, 1], c=self.y_predict, label=f'Predicted y correlation = {np.round(self.accuracy(y, x),3)}')
+        plt.scatter(x[:, 0], x[:, 1], c=self.y_predict, label=f'Predicted y correlation = {np.round(self.accuracy(y),3)}')
         plt.title('Predicted Values using Logistic Regression')
         plt.legend(loc='best')
 
@@ -635,15 +635,15 @@ class KNN(object):
         plot_decision_regions(X, y, self)
 
 
-# Perceptron class that uses linear algebra to calculate a line of best fit that attempts to split the data. To
+# SoftSVM class that uses linear algebra to calculate a line of best fit that attempts to split the data. To
 # initialize please use: SoftSVM(rate = float, niter=float, lamda=float) and assign to an object.
 # X is an array of real values in the shape of X:X[0]|X[1] and y is an array the same length of X[0] and must be
 # filled with either 1 or -1. Use ndarrays for all the two vectors.
 #
 # Use obj.fit(X, y) where X is a (2 by n) dimensional numpy array and y is a (1 by n) dimensional numpy array using test
 # test data to find a linear line between the data as well as the bounds of the dataset.
-# Use obj.predict(X) to use the fitted line on a data set, where X is a (2 by n) dimensional numpy array. Returns a
-# (1 by n) dimensional numpy array.
+# Use obj.predict(X) to use the fitted line on a data set, where X is a (n by 2) dimensional numpy array. Returns a
+# (n by 1) dimensional numpy array.
 # Use obj.plot(X, y) to show a border wall between the data sets
 #
 class SoftSVM(object):
