@@ -47,7 +47,7 @@ Next, we create squares that represent either side of the threshold, with one si
 ## Usage
 Use the inlcuded test file or use the following:
 
-obj = ThresholdLearner()
+obj = ThresholdLearner(float, float, integer, integer)
 
 obj.predict(x, y)
 
