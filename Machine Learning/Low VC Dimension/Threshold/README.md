@@ -24,7 +24,7 @@ b – integer (should be treated as a Boolean) used by the user to focus on eith
 
 Next, we need to talk about the threshold value, which is defaulted to the minimum threshold value once the user uses the class to predict a set of data. Lastly, we need to talk about the increment value, which takes the maximum threshold value and subtracts it from the minimum threshold value, this is then divided by the number of iterations that the user inputs. Note: This is why we informed the user to increase the number of iterations if they need a smaller step size between each iteration.   
 
-# predict(x=[1 by n] ndarray, y[1 by n] ndarray) 
+# predict(x=[n by 1] ndarray, y[n by 1] ndarray) 
 The predict() function takes in two 1-d numpy_array’s that hold the x-array and the y-array, which the y-array must be integers that are either 1, or -1. We decided to keep track of how many errors occur while trying to figure out the correct threshold value. We then determine if the user put in 1 or not 1 into the b-value, by checking to see if it is equal to 1. If it is equal to 1, the not_b is set to -1, otherwise not_b is set to 1. 
 
 The function then loops from zero until the maximum value of iterations and preforms the following actions. We can leverage the numpy library by using the where() function, which will loop through the array and preform a regular expression on the entire array. As shown in the figure below, we look to see if the x-value is greater than the threshold value and if it is then we will assign a predicted y-value to the b-value, otherwise we assign the not_b value. 
@@ -37,7 +37,7 @@ Next, we add the newly calculated to the error array. We then check to see if we
 
 Lastly, if we need to make sure that we use the threshold value with the least amount of miscalculations. This is done by finding the indices of where the minimum error occurred as they are directly correlated to the iteration value. Using the where() library function comparing the error array to another library function amin() which searches the error array and creates a new array that contains a list of indices that have the minimum values. This was shown on thispointer.com as someone else wondered if this was possible. We then can set the best-fit, not perfect-fit, threshold value equal to the minimum threshold value plus the increment times the new array holding the minimum error indices given the first value within that list. 
 
-# graph(x=[1 by n] ndarray, y[1 by n] ndarray)
+# graph(x=[n by 1] ndarray, y[n by 1] ndarray)
 The graph() function takes in two 1-d numpy_array’s that hold the x-array and the y-array being integers that act as binary (1 or -1). Depending on what the user set the b-value to, will determine what color and directional arrow will be used to represent the threshold value. A green upwards arrow will be used to help the user see that the threshold was set with b-value = 1, as it points to all the y-values that are equal to 1. A red downward arrow will be assigned to help the user see that the threshold was set to reach b-value = 0, as it points to all the y-values that are equal to 0. We then make subplots as this was recommend by the matplotlib website for using some of their functions. 
 
 We then make a scatter plot of the x-array and y-array, so the user can visualize their data. We then create plot the threshold value given y = 0, so it lies in the middle of the data. We also added a label that will show the user the threshold value as well as the b-value was set just in case the threshold arrow was not clear enough. 
