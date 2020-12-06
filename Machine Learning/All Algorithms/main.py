@@ -1,35 +1,49 @@
 import pandas as pd, numpy as np, matplotlib.pyplot as plt
 from ML import Perceptron, LinearRegression, ThresholdLearner, IntervalLearner, plot_decision_regions, LogisticLearner, \
     KNN, SoftSVM
-from sklearn.datasets import make_blobs
 from sklearn import datasets, neighbors
 from sklearn.linear_model import LogisticRegression
-import seaborn as sns
+
 
 def main():
-    test_threshold()
+    test_svm()
+
 
 def test_svm():
     df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
     y = df.iloc[0:100, 4].values
     y = np.where(y == 'Iris-setosa', -1, 1)
     X = df.iloc[0:100, [0, 2]].values
+    print("Testing Soft SVM as Hard SVM....")
     magnitudeDirection = SoftSVM()
     magnitudeDirection.fit(X, y)
-    print(magnitudeDirection.weight)
+    print("Weights are: ", magnitudeDirection.weight)
+    print("Intercept value is: ", magnitudeDirection.b)
     magnitudeDirection.plot(X, y)
-    # X, y = datasets.make_blobs(n_samples=50, n_features=2, centers=2, cluster_std=1.05, random_state=40)
-    # y = np.where(y == 0, -1, 1)
-    magnitudeDirection.fit(X, y)
-    magnitudeDirection.plot(X, y)
+
+    print("Using recommended SKLearn graph setup...")
     clf = SoftSVM()
     clf.fit(X, y)
 
-    # predictions = clf.predict(X)
+    coolerPlot(X, y, clf)
+    print("Using Soft SVM...")
+    clf = SoftSVM(0.001, 1000, 0.01)
+    clf.fit(X, y)
+    coolerPlot(X, y, clf)
 
-    def get_hyperplane_value(x, w, b, offset):
-        return (-w[0] * x + b + offset) / w[1]
+    print("Testing Blob Data Set")
+    X, y = datasets.make_blobs(n_samples=50, n_features=2, centers=2, cluster_std=1.05, random_state=40)
+    y = np.where(y == 0, -1, 1)
+    magnitudeDirection.fit(X, y)
+    magnitudeDirection.plot(X, y)
+    coolerPlot(X, y, magnitudeDirection)
 
+### Used for SVM ###
+def get_hyperplane_value(x, w, b, offset):
+    return (-w[0] * x + b + offset) / w[1]
+
+### Used for SVM ###
+def coolerPlot(X, y, clf):
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     plt.scatter(X[:, 0], X[:, 1], marker='o', c=y)
@@ -48,35 +62,40 @@ def test_svm():
     x1_max = np.amax(X[:, 1])
     ax.set_ylim([x1_min - 3, x1_max + 3])
     plt.show()
+    return
+########################################################################################################################
 
 def test_knn():
-    # df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
-    # y = df.iloc[0:100, 4].values
-    # y = np.where(y == 'Iris-setosa', -1, 1)
-    # y = np.random.randint(2, size=100)
-    # x = df.iloc[0:100, [0, 2]].values
-    # x = 2 + 2.5*np.random.randn(2, 100)
+    df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
+    y = df.iloc[0:100, 4].values
+    y = np.where(y == 'Iris-setosa', -1, 1)
+    y = np.random.randint(2, size=100)
+    x = df.iloc[0:100, [0, 2]].values
+    print("Testing 2-D Iris data set with only one neighbor...")
+    neighbor = KNN(k=1)
+    neighbor.fit(x, y)
+    neighbor.plot(x, y)
+    print("Testing Iris data set with 15 neighbor...")
     iris = datasets.load_iris()
     x = iris.data[:, :2]
     y = iris.target
-    # y = (iris.target != 0) * 1
-    # y = np.reshape(y, (150,1))
-    # plt.scatter(x[:, 0],x[:, 1], c=y)
-    # plt.show()
-    neighbor = KNN(k=1)
-    # x = np.array([[1, 1], [3, 1], [1, 4], [2, 4], [3, 3], [5, 1]])
-    # y = np.array([0, 0, 0, 1, 1, 1])
+    neighbor = KNN(15)
     neighbor.fit(x, y)
     y_pred = neighbor.predict(x)
     neighbor.accuracy(y_pred, y)
+    neighbor.plot(x, y)
+    print("Adding new point to dataset and testing with full Iris 1-k data set...")
+    neighbor = KNN(1)
+    neighbor.fit(x, y)
     y2 = np.array([1])
     y2 = np.append(y, y2)
     x2 = np.vstack([x, [5.0, 3.2]])
-    neighbor.plot(x, y)
-    #plot_decision_regions(x2, y2, neighbor)
+    neighbor.plot(x2, y2)
+    print("Testing SKLearn's model...")
     clf = neighbors.KNeighborsClassifier(1)
-    clf.fit(x2, y2)
-    #plot_decision_regions(x, y, clf)
+    clf.fit(x, y)
+    plot_decision_regions(x2, y2, clf)
+
 
 def test_logistic():
     iris = datasets.load_iris()
@@ -93,6 +112,7 @@ def test_logistic():
     clf.predict(x[:2, :])
     print(clf.score(x, y))
     logic.graph(x, y)
+
 
 def test_interval():
     print("Creating a threshold learner with a b-value of 1 using a separable dataset...")
@@ -117,6 +137,7 @@ def test_interval():
     print("Number of iterations out of 100: ", len(val_neg.errors))
     print("Iteration errors as follows:", val_neg.errors)
     val_neg.graph(x_2, y_2)
+
 
 def test_perceptron():
     df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
@@ -164,6 +185,7 @@ def test_perceptron():
     print("Weight vector")
     print(pn2.weight)
 
+
 def test_linearRegression():
     df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
     print("Creating a weak positive correlation data set")
@@ -198,6 +220,7 @@ def test_linearRegression():
     linear.predict(x, y)
     print("Graphing uniform distribution...")
     linear.graph(x, y)
+
 
 def test_threshold():
     df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
@@ -234,6 +257,7 @@ def test_threshold():
     print("Number of iterations out of 100: ", len(thresh_neg.errors))
     print("Iteration errors as follows:", thresh_neg.errors)
     thresh_neg.graph(x_2, y_2)
+
 
 if __name__ == "__main__":
     main()
