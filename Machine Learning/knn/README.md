@@ -1,7 +1,7 @@
 ### K Nearest Neighbor
 
 ## Introduction
-The k Nearest Neighbor is a supervised learner that calulates the distance from a given point to all other k nearest neighbors. This is extremly accurate for data and does not make any assumptions about the dataset, but it comes at the cost of being more RAM hungry than Chrome. So, please be carful, you can quickly use up more RAM than there is in the universe. 
+The k Nearest Neighbor is a supervised learner that calulates the distance from a given point to all other k nearest neighbors. This is extremly accurate for data and does not make any assumptions about the dataset, but it comes at the cost of being more RAM hungry than Chrome. So, please be carful, you can quickly use up more RAM then there is in the universe. 
 
 ## Theory 
 
