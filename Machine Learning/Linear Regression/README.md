@@ -38,3 +38,14 @@ obj.predict(x, y) where both x and y are [1 by n] ndarrays
 obj.graph(x ,y) where both x and y are [1 by n] ndarrays
 
 Note: both arrays must be the same size each other
+
+## Output 
+Here are a few of the outputs from the test file from my previous PDF, hence why the figure numbers are off.
+
+![](images/linearout1.PNG)
+
+![](images/linearout2.PNG)
+
+![](images/linearout3.PNG)
+
+![](images/linearout4.PNG)
