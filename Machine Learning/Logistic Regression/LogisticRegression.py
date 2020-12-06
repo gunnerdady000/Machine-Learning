@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # X is a (n by m) numpy array and y is a 1-d by m array that holds either 1 or 0 as labels for the data set.
 #
 # Use obj.fit(X, y) to create a best logistic line for the data
-# Use obj.accuracy(X) to find the accuracy of the logistic line, will return a percentage value
+# Use obj.accuracy(y) to find the accuracy of the logistic line, will return a percentage value
 # Use obj.predict(X) to on a data set to see how the fitted logistic line to a dataset
 # Use obj.graph(X, y) to see the outputs of the actual data and the predicted data
 #
@@ -50,9 +50,9 @@ class LogisticLearner(object):
         return self
 
     # Used to find the predicted value from the true data set, compared to sklearn's model, which had this function
-    def accuracy(self, y, X):
+    def accuracy(self, y):
         # Add up the number of times that a value was calculated correctly divided by the total amount of values
-        precent_error = np.sum(y == self.y_predict) / X.shape[0]
+        precent_error = np.sum(y == self.y_predict) / len(y)
         return precent_error
 
     # Predict value based off the weights and bias from the fit, then return the values
