@@ -52,3 +52,14 @@ obj = LinearRegression()
 obj.predict(x, y)
 
 obj.graph(x, y)
+
+## Output 
+Here are more stolen outputs from my previous PDF hence why the figure numbers are off.
+
+![](images/intervalout1.PNG)
+
+![](images/intervalout2.PNG)
+
+![](images/intervalout3.PNG)
+
+![](images/intervalout4.PNG)
