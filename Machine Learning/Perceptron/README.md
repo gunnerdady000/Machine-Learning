@@ -93,3 +93,8 @@ use the object and train it on the data sets by using pn.fit(X, y).
 Lastly, just call the plot fucntion with the same dataset or a dataset that fits the previous requirements for the class.
 
 Please see the included PDF for more documentation. 
+
+## Output
+Here is an output from my PDF. 
+
+![](images/perceptronoutput.PNG)
