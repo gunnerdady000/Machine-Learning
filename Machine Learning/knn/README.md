@@ -4,7 +4,7 @@
 The k Nearest Neighbor is a supervised learner that calulates the distance from a given point to all other k nearest neighbors. This is extremly accurate for data and does not make any assumptions about the dataset, but it comes at the cost of being more RAM hungry than Chrome. So, please be carful, you can quickly use up more RAM then there is in the universe. 
 
 ## Theory 
-
+![](images/knntheory.PNG)
 
 ## Class Outline
 The class has the following functions: 
@@ -37,3 +37,20 @@ y_pred = obj.predict(X)
 obj.accuracy(y_pred, y)
 
 ## Output
+The images below are the outputs of the test file. 
+
+Here is the output of k=1 using a 2 feature set from the Iris data set.
+
+![](images/knnoutput1.PNG)
+
+Next is the output of k=15 using a 3 feature set from the Iris data set.
+
+![](images/knnoutput2.PNG)
+
+Output of k=1 using a 3 feature set from the Iris data set with an added point. 
+
+![](images/knnoutput3.PNG)
+
+Output of SKLearn's model given k=1 and using a 3 feature set from the Iris data set.
+
+![](images/knnoutput4.PNG)
