@@ -27,7 +27,7 @@ Next, we need to talk about the threshold values, which threshold1 is defaulted 
 
 Lastly, we need to talk about the increment value, which takes the maximum threshold value and subtracts it from the minimum threshold value, this is then divided by the number of iterations that the user inputs. Note: This is why we informed the user to increase the number of iterations if they need a smaller step size between each iteration.   
 
-## predict(x=\[1 by n] ndarray, y\[1 by n] ndarray) 
+## predict(x=\[n by 1] ndarray, y\[n by 1] ndarray) 
 The predict() function takes in two 1-d numpy_array’s that hold the x-array and the y-array, which the y-array must be integers that are either 1, or -1. We decided to keep track of how many errors occur while trying to figure out the correct threshold value. We then determine if the user put in 1 or not 1 into the b-value, by checking to see if it is equal to 1. If it is equal to 1, the not_b is set to -1, otherwise not_b is set to 1. 
 
 The function then loops from zero until the maximum value of iterations and preforms the following actions. We will compare the current x value to see if it less than the threshold value 1, if it is then we will do one last compare against the threshold value 2. If the value lies within this then it have a result of y\[i] = b. If it fails either of these, then the value must lie outside the range. 
@@ -36,7 +36,7 @@ We will use numpy to collect and compare the output values to the target set to 
 
 Lastly, if the data is not mastered before we run out of iterations, we will have to return the value of the best predicted model. This is done the same way as the threshold learner. 
 
-## graph(x=[1 by n] ndarray, y[1 by n] ndarray) 
+## graph(x=[n by 1] ndarray, y[n by 1] ndarray) 
 This fucntion is used to graph the best fitted interval of the data set. Both x and y need to be 1 by n ndarrays. 
 
 ## Usage
