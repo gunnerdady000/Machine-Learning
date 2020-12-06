@@ -9,7 +9,7 @@ Artificial Intelligence - All in One from  Youtube for his reccomened math of do
 https://www.youtube.com/watch?v=TTdcc21Ko9A&list=PLNeKWBMsAzboR8vvhnlanxCNr2V7ITuxy&index=5
 
 ## Theory  
-
+![](images/LogisticTheory.PNG)
 
 ## Class Overview 
 The class has the following functions: 
@@ -56,3 +56,8 @@ obj.fit(X, y)
 obj.graph(x, y)
 
 ## Test File Output 
+The image below is a picutre of the output of the graphing function. 
+
+![](images/logisticOutput.PNG)
+
+The top plot is of the acutal dataset and the bottom plot shows the predicted data set
