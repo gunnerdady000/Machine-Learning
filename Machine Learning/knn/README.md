@@ -31,9 +31,13 @@ This function uses the plot_decision_regions function which means only datasets 
 
 ## Usage 
 obj = KNN(integer)
+
 obj.fit(X, y)
+
 obj.plot(X, y)
+
 y_pred = obj.predict(X)
+
 obj.accuracy(y_pred, y)
 
 ## Output
