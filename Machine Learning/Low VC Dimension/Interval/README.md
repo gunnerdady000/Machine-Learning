@@ -4,7 +4,7 @@
 The Interval leaner is another 1-d leaner and acts as if there are two threshold learners that are being used. This leaner uses two different thresholds to create a range (interval) that contains only the input values that yield the correct output values. 
 
 ## Theory 
-
+![](images/interval_theory.PNG)
 
 ## Class Outline
 The class has the following functions: 
