@@ -44,3 +44,10 @@ Use the included test file or the following:
 obj = IntervalLearner(float, float, integer, integer)
 obj.fit(x, y)
 obj.plot(x, y)
+
+## Output
+Here are images of the output from the included test file.
+
+![](images/intervaloutput1.PNG)
+
+![](images/intervaloutput2.PNG)
