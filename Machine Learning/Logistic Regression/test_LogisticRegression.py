@@ -13,10 +13,9 @@ def test_logistic():
     y = y[:, np.newaxis]
     logic = LogisticLearner(0.01, 10000)
     logic.fit(x, y)
-    y_predict = logic.predict(x)
     print(logic.weights)
     print(logic.bias)
-    print(f"Accuracy: {np.sum(y == y_predict) / x.shape[0]}")
+    print(f"Accuracy: ", logic.accuracy(y))
     clf = LogisticRegression(random_state=0).fit(x, y)
     clf.predict(x[:2, :])
     print(clf.score(x, y))
