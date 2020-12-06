@@ -4,7 +4,7 @@
 This creates a line (threshold value) on a dimensional and all values that lie left the line are assinged a target output value or all. Values that lie to the right of the line are then given negative value. This is a supervised learner as well as a binary learner. This means the target vector must be either 1 or -1. The learner will adjust the line to the right or left until learner runs out of iteratinons or has mastered it. 
 
 ## Theory 
-![](intervalTheory.PNG)
+![](images/theory.PNG)
 
 ## Class Outline 
 The class is composed of the following functions:
