@@ -3,7 +3,10 @@
 ## Introduction 
 The Logistic Regression is yet annother supervised, binary learner, as it makes a sigmoid fucntion to best approximate the given data set. The sigmoid fucntion creates an S-shaped line that seperates the data from each other as the values located above the line are given a value of 1 and the other values are given a value of -1. 
 
-Thanks to user Aladdinpersson from  Youtube for his reccomened math of doing logistic regression. 
+Thanks to user 
+Artificial Intelligence - All in One from  Youtube for his reccomened math of doing logistic regression. I would have done this without SGD, which had poor perfromance when I tried just plotting logistic lines. 
+
+https://www.youtube.com/watch?v=TTdcc21Ko9A&list=PLNeKWBMsAzboR8vvhnlanxCNr2V7ITuxy&index=5
 
 ## Theory  
 
