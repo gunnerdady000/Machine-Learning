@@ -26,7 +26,7 @@ Below is a list of classes I have completed in my 5 years at SDSMT. All Computer
 - 🧮 Calculus 1,2,3(Multivariable)
 
 ### Languauges
-I primaraly code in C, but most of my Data Structures work was done in C++. As for the Machine Learning Course and Computer Architecture I have been using Python. I also know ARMv8 pretty well as my Assembly Languauge course was in ARMv8. Lastly, I have dabbeled in VHDL as well Java. 
+I primaraly code in C, but most of my Data Structures work was done in C++. As for the Machine Learning Course and Computer Architecture I have been using Python. I also know ARMv8 pretty well as my Assembly Languauge course was in ARMv8. Lastly, I have dabbeled in VHDL and Java. 
 
 [![C](https://i.imgur.com/zINUxVf.png)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![C++](https://i.imgur.com/Ao2P8iG.png)](https://isocpp.org/)
